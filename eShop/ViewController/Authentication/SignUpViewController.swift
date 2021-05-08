@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = "Sign up"
+        hideKeyboardWhenTappedAround()
         
         Utilities.styleTextField(firstNameLabel)
         Utilities.styleTextField(lastNameLabel)
@@ -76,7 +76,8 @@ class SignUpViewController: UIViewController {
     func transit() {
         let ac = UIAlertController(title: "Success", message: "Welcome to eShop!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK!", style: .default, handler: { [weak self] action in
-            let vc = self?.storyboard?.instantiateViewController(identifier: "NewfeedsViewController") as! NewfeedsViewController
+            let vc = self?.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+            vc.dateTitle = "Today's Menu"
             self?.navigationController?.pushViewController(vc, animated: true)
         }))
         present(ac, animated: true)

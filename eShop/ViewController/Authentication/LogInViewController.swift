@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = "Log in"
+        hideKeyboardWhenTappedAround()
         
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
@@ -34,7 +34,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func logInTapped(_ sender: Any) {
-        errorLabel.alpha = 0
+        /*errorLabel.alpha = 0
         if let error = validateTextFields() {
             showError(message: error)
             return
@@ -48,9 +48,13 @@ class LogInViewController: UIViewController {
                 return
             }
             
-            let vc = self.storyboard?.instantiateViewController(identifier: "NewfeedsViewController") as! NewfeedsViewController
+            let vc = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+            vc.dateTitle = "Today's Menu"
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+        }*/
+        let vc = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+        vc.dateTitle = "Today's Menu"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showError(message: String) {
