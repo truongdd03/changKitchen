@@ -44,6 +44,15 @@ class Utilities {
         button.tintColor = UIColor.black
     }
     
+    static func styleFilledLabel(_ label:UILabel) {
+        
+        // Filled rounded corner style
+        label.backgroundColor = UIColor.systemOrange
+        label.layer.cornerRadius = 25.0
+        label.layer.masksToBounds = true
+        label.tintColor = UIColor.white
+    }
+    
     static func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")

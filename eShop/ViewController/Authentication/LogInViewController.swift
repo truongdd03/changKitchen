@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 
 class LogInViewController: UIViewController {
-
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
@@ -19,6 +18,8 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        
+        title = "Log In"
         
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
@@ -52,8 +53,14 @@ class LogInViewController: UIViewController {
             vc.dateTitle = "Today's Menu"
             self.navigationController?.pushViewController(vc, animated: true)
         }*/
+        /*
         let vc = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
         vc.dateTitle = "Today's Menu"
+        self.navigationController?.pushViewController(vc, animated: true)*/
+        
+        let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
+        vc.name = "Today's Menu"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

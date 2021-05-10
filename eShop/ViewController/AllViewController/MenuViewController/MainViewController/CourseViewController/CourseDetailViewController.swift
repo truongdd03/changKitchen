@@ -9,12 +9,13 @@ import UIKit
 
 class CourseDetailViewController: TableViewController {
 
+    var date: String?
     var courseName: String? {
         didSet {
             if let courseName = courseName {
-                title = "Today's \(courseName)"
+                title = "\(courseName) (\(date!))"
                 if courseName == "Main" {
-                    title = "Today's Main Dish"
+                    title = "Main Dish"
                 }
             }
         }
@@ -49,6 +50,7 @@ class CourseDetailViewController: TableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "DishDetailViewController") as! DishDetailViewController
         vc.dish = listOfDishes[indexPath.row]
+        vc.date = date
         vc.title = self.title
         navigationController?.pushViewController(vc, animated: true)
     }

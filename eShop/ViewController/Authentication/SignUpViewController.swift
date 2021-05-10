@@ -22,6 +22,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         
+        title = "Sign Up"
+        
         Utilities.styleTextField(firstNameLabel)
         Utilities.styleTextField(lastNameLabel)
         Utilities.styleTextField(emailLabel)
@@ -68,16 +70,16 @@ class SignUpViewController: UIViewController {
             let db = Firestore.firestore()
             db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "uid": result!.user.uid])
             
-            // transit to Newfeeds page
             self.transit()
         }
     }
     
     func transit() {
-        let ac = UIAlertController(title: "Success", message: "Welcome to eShop!", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Successfully register", message: "Welcome to Chang's Kitchen!", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK!", style: .default, handler: { [weak self] action in
-            let vc = self?.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.dateTitle = "Today's Menu"
+            let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
+            let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
+            vc.name = "Today's Menu"
             self?.navigationController?.pushViewController(vc, animated: true)
         }))
         present(ac, animated: true)

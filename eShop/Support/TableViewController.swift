@@ -13,12 +13,26 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cartButton = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(showCart))
-        navigationItem.rightBarButtonItems = [cartButton]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right.doc.on.clipboard"), style: .plain, target: self, action: #selector(logOut))
     }
     
-    @objc func showCart() {
-        let vc = storyboard?.instantiateViewController(identifier: "CartViewController") as! CartViewController
+    @objc func logOut() {
+        let ac = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Sure", style: .default, handler: { [weak self] action in
+            self?.doLogOut()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(ac, animated: true)
+    }
+    
+    func doLogOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error when log out")
+        }
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "LobbyViewController") as! LobbyViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 }

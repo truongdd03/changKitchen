@@ -9,13 +9,16 @@
 import UIKit
 import Firebase
 
-class MainViewController: LogOutTableViewController {
+class MainViewController: TableViewController {
     var categories = ["Appetizer","Soup","Main", "Dessert"]
-    var dateTitle = ""
+    var dateTitle = "Today"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = dateTitle
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = dateTitle
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +33,7 @@ class MainViewController: LogOutTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "CourseDetailViewController") as! CourseDetailViewController
+        vc.date = dateTitle
         vc.courseName = categories[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }

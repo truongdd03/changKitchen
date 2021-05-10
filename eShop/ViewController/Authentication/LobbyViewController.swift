@@ -20,7 +20,7 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Utilities.styleFilledButton(logInButton)
-        Utilities.styleHollowButton(signUpButton)
+        Utilities.styleHollowButton(signUpButton)        
     }
 
     @IBAction func logInTapped(_ sender: Any) {

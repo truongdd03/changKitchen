@@ -88,4 +88,18 @@ class CartViewController: UITableViewController, UpdateTotalPriceProtocol {
         total += tip
         totalLabel.text = "$\(total)"
     }
+    
+    @IBAction func orderTapped(_ sender: Any) {
+        if total == 0 { return }
+        
+        let ac = UIAlertController(title: "Are you sure you want to order?", message: "Total cost is $\(total)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] action in
+            let vc = self?.storyboard?.instantiateViewController(identifier: "TrackingViewController") as! TrackingViewController
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }))
+        
+        present(ac, animated: true)
+    }
+    
 }

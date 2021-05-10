@@ -19,6 +19,7 @@ class DishDetailViewController: ViewController {
     @IBOutlet weak var noteTextView: UITextView!
     
     var dish = Dish(name: "", price: 0, quantity: 0, note: nil)
+    var date: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +51,30 @@ class DishDetailViewController: ViewController {
         chosenDishes.append(dish)
         noteTextView.text = ""
         quantityField.text = ""
-    
-        let ac = UIAlertController(title: "Added", message: "Are you still hungry?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Nope", style: .cancel, handler: { [weak self] action in
-            let vc = self?.storyboard?.instantiateViewController(identifier: "CartViewController") as! CartViewController
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }))
-        ac.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] action in
+        
+        if date != "Today" {
+            preOrder()
+            return
+        }
+        
+        let ac = UIAlertController(title: "Added to cart!", message: "Is that all?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "No", style: .default, handler: { [weak self] action in
             self?.navigationController?.popViewController(animated: true)
         }))
+        ac.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { [weak self] action in
+            //let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            //let vc = storyBoard.instantiateViewController(identifier: "CartViewController") as! CartViewController
+            //self?.navigationController?.pushViewController(vc, animated: true)
+            self?.tabBarController?.selectedIndex = 2
+            self?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }))
+
         present(ac, animated: true)
+    }
+    
+    // Upload demand
+    func preOrder() {
+        var dateOrder = date
+        var dishOrder = dish
     }
 }
