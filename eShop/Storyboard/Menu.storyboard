@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,41 +49,89 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="1Bo-tx-tju"/>
                     <connections>
-                        <segue destination="3lB-Af-iyG" kind="push" id="xc6-i0-fba"/>
+                        <segue destination="mX8-Dj-83C" kind="show" id="hPF-Ea-7bK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfC-2U-ZIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602.89855072463774" y="2154.9107142857142"/>
+            <point key="canvasLocation" x="-568" y="2155"/>
         </scene>
         <!--Course Detail View Controller-->
-        <scene sceneID="Fvm-M4-T8R">
+        <scene sceneID="3pJ-e8-P8v">
             <objects>
-                <tableViewController storyboardIdentifier="CourseDetailViewController" id="3lB-Af-iyG" customClass="CourseDetailViewController" customModule="eShop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" id="h9p-0b-XEU">
+                <collectionViewController storyboardIdentifier="CourseDetailViewController" id="mX8-Dj-83C" customClass="CourseDetailViewController" customModule="eShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gWQ-PY-MNX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="sBk-Yq-tiw">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sBk-Yq-tiw" id="9Ru-g5-fq5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ebO-xD-fsL">
+                            <size key="itemSize" width="175" height="175"/>
+                            <size key="estimatedItemSize" width="175" height="175"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DishCell" reuseIdentifier="DishCell" id="AhI-lK-xmF" customClass="DishCell" customModule="eShop" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="175" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yiL-iM-71h">
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWg-ly-8L4">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="175" id="eBX-ke-Zwd"/>
+                                                <constraint firstAttribute="height" constant="120" id="mJS-cJ-bL5"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4M-Ur-jPG">
+                                            <rect key="frame" x="10" y="120" width="155" height="28.5"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                            <color key="textColor" systemColor="systemOrangeColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYC-3V-TuH">
+                                            <rect key="frame" x="20" y="148.5" width="135" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="lWg-ly-8L4" secondAttribute="trailing" id="1tJ-S4-8Zc"/>
+                                        <constraint firstItem="r4M-Ur-jPG" firstAttribute="leading" secondItem="yiL-iM-71h" secondAttribute="leading" constant="10" id="6r3-bN-m4q"/>
+                                        <constraint firstAttribute="trailing" secondItem="r4M-Ur-jPG" secondAttribute="trailing" constant="10" id="DMw-gZ-Zjw"/>
+                                        <constraint firstItem="lWg-ly-8L4" firstAttribute="leading" secondItem="yiL-iM-71h" secondAttribute="leading" id="PSL-ss-aPa"/>
+                                        <constraint firstItem="r4M-Ur-jPG" firstAttribute="top" secondItem="lWg-ly-8L4" secondAttribute="bottom" id="Tj0-en-g7M"/>
+                                        <constraint firstAttribute="trailing" secondItem="IYC-3V-TuH" secondAttribute="trailing" constant="20" id="Zwx-ec-apL"/>
+                                        <constraint firstItem="IYC-3V-TuH" firstAttribute="leading" secondItem="yiL-iM-71h" secondAttribute="leading" constant="20" id="aTj-WA-2oO"/>
+                                        <constraint firstItem="lWg-ly-8L4" firstAttribute="top" secondItem="yiL-iM-71h" secondAttribute="top" id="lUT-wq-sfk"/>
+                                        <constraint firstItem="IYC-3V-TuH" firstAttribute="top" secondItem="r4M-Ur-jPG" secondAttribute="bottom" id="mNm-da-qXq"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="175" height="175"/>
+                                <connections>
+                                    <outlet property="dishImage" destination="lWg-ly-8L4" id="hvZ-gq-G85"/>
+                                    <outlet property="dishName" destination="r4M-Ur-jPG" id="05A-hf-Ekw"/>
+                                    <outlet property="dishPrice" destination="IYC-3V-TuH" id="8Ka-Rw-btb"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="3lB-Af-iyG" id="sHw-UC-tVG"/>
-                            <outlet property="delegate" destination="3lB-Af-iyG" id="1RN-7t-hcv"/>
+                            <outlet property="dataSource" destination="mX8-Dj-83C" id="8YP-4A-nJP"/>
+                            <outlet property="delegate" destination="mX8-Dj-83C" id="nga-Os-fSy"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Mm4-FD-8Le"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6n7-Ot-UQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="oA0-fx-ROc"/>
+                    <connections>
+                        <segue destination="OW0-by-oRd" kind="show" id="bOs-XT-0Gt"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JeR-nQ-A5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439.13043478260875" y="2154.9107142857142"/>
+            <point key="canvasLocation" x="491" y="2155"/>
         </scene>
         <!--Dish Detail View Controller-->
         <scene sceneID="PJ6-tk-7kQ">
@@ -93,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5eK-zi-kdE">
-                                <rect key="frame" x="150" y="141.5" width="244" height="372"/>
+                                <rect key="frame" x="150" y="193.5" width="244" height="427"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXZ-Jt-4WK">
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="34"/>
@@ -103,14 +152,20 @@
                                             <action selector="quantityFieldDidEdit:" destination="OW0-by-oRd" eventType="editingDidEnd" id="MBo-UU-br4"/>
                                         </connections>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In cart: 10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-eS-niX">
+                                        <rect key="frame" x="0.0" y="64" width="244" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-Z2-dSG">
-                                        <rect key="frame" x="0.0" y="64" width="244" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="118.5" width="244" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hnI-Fz-KE8">
-                                        <rect key="frame" x="0.0" y="114.5" width="244" height="200"/>
+                                        <rect key="frame" x="0.0" y="169" width="244" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="4z2-5s-9nf"/>
@@ -120,39 +175,39 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-El-tk9">
-                                        <rect key="frame" x="0.0" y="344.5" width="244" height="27.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="0.0" y="399" width="244" height="28"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-lo-9um">
-                                <rect key="frame" x="20" y="148" width="69.5" height="21"/>
+                                <rect key="frame" x="20" y="200" width="69.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ4-SN-heI">
-                                <rect key="frame" x="20" y="205.5" width="43.5" height="21"/>
+                                <rect key="frame" x="20" y="312" width="43.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwS-xA-ECe">
-                                <rect key="frame" x="20" y="256" width="41.5" height="20.5"/>
+                                <rect key="frame" x="20" y="362.5" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43V-9Q-vnW">
-                                <rect key="frame" x="20" y="487.5" width="52.5" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
+                                <rect key="frame" x="20" y="594.5" width="43.5" height="24.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QS-de-X6U">
-                                <rect key="frame" x="60" y="563.5" width="294" height="36"/>
+                                <rect key="frame" x="60" y="670.5" width="294" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add to cart"/>
                                 <connections>
@@ -160,8 +215,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg9-mv-C99">
-                                <rect key="frame" x="20" y="64" width="374" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <rect key="frame" x="20" y="108" width="374" height="35.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -191,12 +246,14 @@
                             <constraint firstItem="1vT-f0-y6A" firstAttribute="trailing" secondItem="1QS-de-X6U" secondAttribute="trailing" constant="60" id="xcj-12-O5n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="EoA-Tm-xbD"/>
                     <connections>
                         <outlet property="addButton" destination="1QS-de-X6U" id="0oX-9f-bnj"/>
                         <outlet property="dishNameLabel" destination="Mg9-mv-C99" id="zkB-53-VHR"/>
                         <outlet property="dishPriceLabel" destination="VXc-Z2-dSG" id="bXK-zg-csX"/>
                         <outlet property="noteTextView" destination="hnI-Fz-KE8" id="UJI-2e-yQl"/>
                         <outlet property="quantityField" destination="AXZ-Jt-4WK" id="bVj-kN-dz5"/>
+                        <outlet property="quantityInCart" destination="hvO-eS-niX" id="bTQ-k2-kr8"/>
                         <outlet property="quantityTextField" destination="l2F-9i-BCf" id="yFm-sf-gBL"/>
                         <outlet property="totalPriceLabel" destination="JDN-El-tk9" id="sDh-ft-vWD"/>
                     </connections>
@@ -235,9 +292,6 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

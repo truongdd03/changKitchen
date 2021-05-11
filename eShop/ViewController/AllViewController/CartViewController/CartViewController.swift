@@ -14,11 +14,12 @@ protocol UpdateTotalPriceProtocol {
    func calculateTotal()
 }
 
-class CartViewController: UITableViewController, UpdateTotalPriceProtocol {
+class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var tipTextField: UITextField!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var orderButton: UIButton!
+    @IBOutlet weak var trackButton: UIButton!
         
     var tax = 0.0 {
         didSet {
@@ -36,6 +37,7 @@ class CartViewController: UITableViewController, UpdateTotalPriceProtocol {
         title = "Cart"
         taxLabel.text = "$\(tax)"
         Utilities.styleFilledButton(orderButton)
+        Utilities.styleHollowButton(trackButton)
         
         hideKeyboardWhenTappedAround()
         
@@ -56,7 +58,7 @@ class CartViewController: UITableViewController, UpdateTotalPriceProtocol {
     func fetchData() {
         chosenDishes.removeAll()
         for i in 0...3 {
-            chosenDishes.append(Dish(name: "Dish \(i)", price: 1.00, quantity: 1, note: nil))
+            chosenDishes.append(Dish(name: "Dish \(i)", price: 1.00, quantity: 1, note: nil, image: nil))
         }
     }
     
@@ -100,6 +102,11 @@ class CartViewController: UITableViewController, UpdateTotalPriceProtocol {
         }))
         
         present(ac, animated: true)
+    }
+    
+    @IBAction func trackTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "TrackingViewController") as! TrackingViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

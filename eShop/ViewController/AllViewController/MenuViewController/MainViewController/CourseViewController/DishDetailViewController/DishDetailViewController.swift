@@ -11,6 +11,7 @@ class DishDetailViewController: ViewController {
     // Don't know what the hell is it
     @IBOutlet weak var quantityTextField: UITextField!
     
+    @IBOutlet weak var quantityInCart: UILabel!
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var dishPriceLabel: UILabel!
@@ -18,8 +19,10 @@ class DishDetailViewController: ViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
     
-    var dish = Dish(name: "", price: 0, quantity: 0, note: nil)
+    var dish = Dish(name: "", price: 0, quantity: 0, note: nil, image: nil)
     var date: String?
+    var totalPrice = 0.0
+    var quantity = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,27 +33,45 @@ class DishDetailViewController: ViewController {
     func setUp() {
         totalPriceLabel.text = "$0.0"
         dishNameLabel.text = dish.name
+        quantityInCart.text = "In Cart: \(Int(dish.quantity))"
 
         noteTextView.layer.borderWidth = 1
         noteTextView.layer.borderColor = UIColor.init(white: 0, alpha: 0.08).cgColor
+        noteTextView.text = dish.note
         
         Utilities.styleFilledButton(addButton)
     }
 
     @IBAction func quantityFieldDidEdit(_ sender: Any) {
         if let tmp = Int((sender as! UITextField).text ?? "0") {
-            dish.quantity = Double(tmp)
-            dish.total = dish.quantity * dish.price
-            totalPriceLabel.text = "$\(dish.total)"
+            quantity += Double(tmp)
+            totalPrice = quantity * dish.price
+            totalPriceLabel.text = "$\(totalPrice)"
         }
     }
         
-    @IBAction func addButtonTapped(_ sender: Any) {
-        if dish.total == 0 { return }
+    func updateDish() {
+        var isNew = false
+        if dish.quantity == 0 { isNew = true }
+        
+        dish.quantity += quantity
+        dish.total = totalPrice
         dish.note = noteTextView.text
-        chosenDishes.append(dish)
+        
+        if isNew {
+            chosenDishes.append(dish)
+        }
+    }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        if totalPrice == 0 { return }
+        
+        updateDish()
+        
         noteTextView.text = ""
         quantityField.text = ""
+        totalPriceLabel.text = "$0.0"
+        quantityInCart.text = "In Cart: \(Int(dish.quantity))"
         
         if date != "Today" {
             preOrder()
@@ -62,9 +83,6 @@ class DishDetailViewController: ViewController {
             self?.navigationController?.popViewController(animated: true)
         }))
         ac.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { [weak self] action in
-            //let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            //let vc = storyBoard.instantiateViewController(identifier: "CartViewController") as! CartViewController
-            //self?.navigationController?.pushViewController(vc, animated: true)
             self?.tabBarController?.selectedIndex = 2
             self?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
@@ -74,7 +92,7 @@ class DishDetailViewController: ViewController {
     
     // Upload demand
     func preOrder() {
-        var dateOrder = date
-        var dishOrder = dish
+        //var dateOrder = date
+        //var dishOrder = dish
     }
 }

@@ -59,4 +59,7 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func styleRoundedImageView(_ image: UIImageView) {
+        image.layer.cornerRadius = 20
+    }
 }

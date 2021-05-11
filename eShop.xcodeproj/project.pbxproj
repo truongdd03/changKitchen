@@ -23,14 +23,14 @@
 		5E32EEB12642BFB900A78482 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32EEB02642BFB900A78482 /* SignUpViewController.swift */; };
 		5E5482CD2643899E00306F96 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5482CC2643899E00306F96 /* Dish.swift */; };
 		5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */; };
+		5E7606F8264982F500A4B811 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7606F7264982F500A4B811 /* CollectionViewController.swift */; };
+		5E7607002649850100A4B811 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7606FF2649850100A4B811 /* DishCell.swift */; };
 		5E77B68F26456329005AC3B1 /* DishDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77B68E26456329005AC3B1 /* DishDetailViewController.swift */; };
 		5E77B69326458013005AC3B1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77B69226458013005AC3B1 /* TableViewController.swift */; };
 		5E77B69A2645868A005AC3B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77B6992645868A005AC3B1 /* ViewController.swift */; };
 		5E77B69F264588E7005AC3B1 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77B69E264588E7005AC3B1 /* CartViewController.swift */; };
 		5E783D6326490A60004A0127 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E783D6226490A60004A0127 /* TabBar.storyboard */; };
 		5E783D6726493138004A0127 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E783D6626493138004A0127 /* Cart.storyboard */; };
-		5E78913626444621001A2763 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E78913526444621001A2763 /* DishCell.swift */; };
-		5E7891392644462C001A2763 /* DishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7891382644462C001A2763 /* DishCell.xib */; };
 		5EC12F0C264684D600E9DE4D /* hideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */; };
 		5EC12F102646D7D200E9DE4D /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F0F2646D7D200E9DE4D /* AllViewController.swift */; };
 		5EC12F402646EA6C00E9DE4D /* PreOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F3F2646EA6C00E9DE4D /* PreOrderViewController.swift */; };
@@ -61,14 +61,14 @@
 		5E32EEB02642BFB900A78482 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5E5482CC2643899E00306F96 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		5E7606F7264982F500A4B811 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		5E7606FF2649850100A4B811 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 		5E77B68E26456329005AC3B1 /* DishDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailViewController.swift; sourceTree = "<group>"; };
 		5E77B69226458013005AC3B1 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5E77B6992645868A005AC3B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5E77B69E264588E7005AC3B1 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		5E783D6226490A60004A0127 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5E783D6626493138004A0127 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
-		5E78913526444621001A2763 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
-		5E7891382644462C001A2763 /* DishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishCell.xib; sourceTree = "<group>"; };
 		5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		5EC12F0F2646D7D200E9DE4D /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		5EC12F3F2646EA6C00E9DE4D /* PreOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOrderViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 				5E32EEA72642B48E00A78482 /* Utilities.swift */,
 				5E77B69226458013005AC3B1 /* TableViewController.swift */,
 				5E77B6992645868A005AC3B1 /* ViewController.swift */,
+				5E7606F7264982F500A4B811 /* CollectionViewController.swift */,
 				5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */,
 			);
 			path = Support;
@@ -239,8 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				5ECE2B57264431B6008C319E /* CourseDetailViewController.swift */,
-				5E78913526444621001A2763 /* DishCell.swift */,
-				5E7891382644462C001A2763 /* DishCell.xib */,
+				5E7606FF2649850100A4B811 /* DishCell.swift */,
 				5E77B68D26456306005AC3B1 /* DishDetailViewController */,
 			);
 			path = CourseViewController;
@@ -336,7 +336,6 @@
 				5E783D6726493138004A0127 /* Cart.storyboard in Resources */,
 				5E32EE9C2642AFEE00A78482 /* LaunchScreen.storyboard in Resources */,
 				5EC8E0362642EDF40069C7B9 /* GoogleService-Info.plist in Resources */,
-				5E7891392644462C001A2763 /* DishCell.xib in Resources */,
 				5E783D6326490A60004A0127 /* TabBar.storyboard in Resources */,
 				5E32EE992642AFEE00A78482 /* Assets.xcassets in Resources */,
 				5E32EE972642AFEB00A78482 /* Main.storyboard in Resources */,
@@ -395,8 +394,8 @@
 			files = (
 				5E77B69A2645868A005AC3B1 /* ViewController.swift in Sources */,
 				5E32EEB12642BFB900A78482 /* SignUpViewController.swift in Sources */,
+				5E7607002649850100A4B811 /* DishCell.swift in Sources */,
 				5EC12F0C264684D600E9DE4D /* hideKeyBoardExtension.swift in Sources */,
-				5E78913626444621001A2763 /* DishCell.swift in Sources */,
 				5EC12F402646EA6C00E9DE4D /* PreOrderViewController.swift in Sources */,
 				5E32EE942642AFEB00A78482 /* LobbyViewController.swift in Sources */,
 				5E77B68F26456329005AC3B1 /* DishDetailViewController.swift in Sources */,
@@ -405,6 +404,7 @@
 				5E1277BE2645A37F00DD7E8B /* ChosenDishCell.swift in Sources */,
 				5EC12F102646D7D200E9DE4D /* AllViewController.swift in Sources */,
 				5E32EEA82642B48F00A78482 /* Utilities.swift in Sources */,
+				5E7606F8264982F500A4B811 /* CollectionViewController.swift in Sources */,
 				5E32EEAE2642B60900A78482 /* LogInViewController.swift in Sources */,
 				5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */,
 				5E77B69326458013005AC3B1 /* TableViewController.swift in Sources */,
