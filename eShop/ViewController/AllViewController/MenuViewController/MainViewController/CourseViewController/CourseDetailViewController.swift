@@ -15,7 +15,7 @@ class CourseDetailViewController: CollectionViewController {
             if let courseName = courseName {
                 title = "\(courseName) (\(date!))"
                 if courseName == "Main" {
-                    title = "Main Dish"
+                    title = "Main Dish (\(date!))"
                 }
             }
         }
