@@ -20,7 +20,7 @@ class Dish: NSObject {
         }
     }
     var note: String?
-    var image: UIImage?
+    //var image: UIImage?
     var total: Double
     
     init(name: String, price: Double, quantity: Double, note: String?, image: UIImage?) {
@@ -29,6 +29,6 @@ class Dish: NSObject {
         self.quantity = quantity
         self.note = note
         self.total = self.quantity * self.price
-        self.image = image
+        //self.image = image
     }
 }

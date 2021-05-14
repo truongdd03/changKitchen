@@ -35,7 +35,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func logInTapped(_ sender: Any) {
-        /*errorLabel.alpha = 0
+        errorLabel.alpha = 0
         if let error = validateTextFields() {
             showError(message: error)
             return
@@ -49,19 +49,13 @@ class LogInViewController: UIViewController {
                 return
             }
             
-            let vc = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.dateTitle = "Today's Menu"
+            let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
+            let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
             self.navigationController?.pushViewController(vc, animated: true)
-        }*/
-        /*
-        let vc = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-        vc.dateTitle = "Today's Menu"
-        self.navigationController?.pushViewController(vc, animated: true)*/
-        
-        let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
-        vc.name = "Today's Menu"
-        self.navigationController?.pushViewController(vc, animated: true)
+            
+            let defaults = UserDefaults.standard
+            defaults.setValue(true, forKey: "isSignIn")
+        }
     }
     
     func showError(message: String) {

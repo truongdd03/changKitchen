@@ -27,29 +27,27 @@ class ChosenDishCell: UITableViewCell {
     }
 
     @IBAction func reduceTapped(_ sender: Any) {
-        if chosenDishes[id].quantity == 0 { return }
-        chosenDishes[id].quantity -= 1
-        showLabel()
+        if allOrders[date]!.orders[id].quantity == 0 { return }
         
-        updateTotalLabel()
+        allOrders[date]!.orders[id].quantity -= 1
+        showLabel()
+
+        delegate.calculateTotal()
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        chosenDishes[id].quantity += 1
+        allOrders[date]!.orders[id].quantity += 1
         showLabel()
         
-        updateTotalLabel()
-    }
-
-    func updateTotalLabel() {
         delegate.calculateTotal()
     }
 
     func showLabel() {
-        let dish = chosenDishes[id]
+        let orderedDish = allOrders[date]!.orders[id]
+        let dish = allDishes[orderedDish.id]!
         dishNameLabel.text = dish.name
         priceLabel.text = "$\(dish.price)"
-        quantityLabel.text = "\(Int(dish.quantity))"
-        totalLabel.text = "$\(dish.total)"
+        quantityLabel.text = "\(Int(orderedDish.quantity))"
+        totalLabel.text = "$\(orderedDish.total)"
     }
 }

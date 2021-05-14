@@ -6,54 +6,57 @@
 //
 
 import UIKit
+import Firebase
 
-class CourseDetailViewController: CollectionViewController {
+class CourseDetailViewController: TableViewController {
 
-    var date: String?
+    var dateTitle: String?
     var courseName: String? {
         didSet {
             if let courseName = courseName {
-                title = "\(courseName) (\(date!))"
-                if courseName == "Main" {
-                    title = "Main Dish (\(date!))"
-                }
+                title = "\(courseName) (\(dateTitle!))"
             }
         }
     }
-    
-    var listOfDishes = [Dish]()
+    var listOfDishes = [menuDish]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        
+        let customCell = UINib(nibName: "DishCell", bundle: nil)
+        tableView.register(customCell, forCellReuseIdentifier: "DishCell")
+        filterList()
     }
-
-    // What will we have today .-.
-    func fetchData() {
-        for i in 0..<5 {
-            listOfDishes.append(Dish(name: "Dish \(i)", price: 1.00, quantity: 0, note: nil, image: nil))
+    
+    func filterList() {
+        var tmp = [menuDish]()
+        for dish in listOfDishes {
+            if dish.courseType == courseName {
+                tmp.append(dish)
+            }
         }
+        listOfDishes = tmp
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfDishes.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DishCell", for: indexPath) as! DishCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishCell
         cell.dishImage.image = UIImage(named: "main")
-        Utilities.styleRoundedImageView(cell.dishImage)
         cell.dishName.text = listOfDishes[indexPath.item].name
         cell.dishPrice.text = "$\(listOfDishes[indexPath.item].price)"
+        
+        cell.dishImage.contentMode = UIView.ContentMode.scaleToFill
+        Utilities.styleRoundedImageView(cell.dishImage)
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "DishDetailViewController") as! DishDetailViewController
         vc.dish = listOfDishes[indexPath.row]
-        vc.date = date
         vc.title = self.title
         navigationController?.pushViewController(vc, animated: true)
     }
-
 }

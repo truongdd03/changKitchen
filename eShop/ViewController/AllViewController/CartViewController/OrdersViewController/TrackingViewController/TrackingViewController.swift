@@ -15,7 +15,6 @@ class TrackingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chosenDishes.removeAll()
         setUp()
     }
     

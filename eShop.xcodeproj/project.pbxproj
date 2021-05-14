@@ -21,6 +21,8 @@
 		5E32EEA82642B48F00A78482 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32EEA72642B48E00A78482 /* Utilities.swift */; };
 		5E32EEAE2642B60900A78482 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32EEAD2642B60900A78482 /* LogInViewController.swift */; };
 		5E32EEB12642BFB900A78482 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32EEB02642BFB900A78482 /* SignUpViewController.swift */; };
+		5E448A45264D2FDD00F60D8D /* orderedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E448A44264D2FDD00F60D8D /* orderedDish.swift */; };
+		5E448A49264D324B00F60D8D /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E448A48264D324B00F60D8D /* Order.swift */; };
 		5E5482CD2643899E00306F96 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5482CC2643899E00306F96 /* Dish.swift */; };
 		5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */; };
 		5E7606F8264982F500A4B811 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7606F7264982F500A4B811 /* CollectionViewController.swift */; };
@@ -31,18 +33,24 @@
 		5E77B69F264588E7005AC3B1 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77B69E264588E7005AC3B1 /* CartViewController.swift */; };
 		5E783D6326490A60004A0127 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E783D6226490A60004A0127 /* TabBar.storyboard */; };
 		5E783D6726493138004A0127 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E783D6626493138004A0127 /* Cart.storyboard */; };
+		5E96EDB3264BA87100C4DA89 /* menuDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E96EDB2264BA87100C4DA89 /* menuDish.swift */; };
+		5EA5DDD5264E1A21001828B4 /* DishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA5DDD4264E1A21001828B4 /* DishCell.xib */; };
 		5EC12F0C264684D600E9DE4D /* hideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */; };
 		5EC12F102646D7D200E9DE4D /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F0F2646D7D200E9DE4D /* AllViewController.swift */; };
 		5EC12F402646EA6C00E9DE4D /* PreOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F3F2646EA6C00E9DE4D /* PreOrderViewController.swift */; };
-		5EC12F452646EB7B00E9DE4D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F442646EB7B00E9DE4D /* Course.swift */; };
 		5EC12F482646EBB800E9DE4D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC12F472646EBB800E9DE4D /* Menu.swift */; };
 		5EC8E0362642EDF40069C7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8E0352642EDF40069C7B9 /* GoogleService-Info.plist */; };
 		5ECE2B58264431B6008C319E /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE2B57264431B6008C319E /* CourseDetailViewController.swift */; };
+		5EE14146264EB3B9002CB884 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE14145264EB3B9002CB884 /* OrdersViewController.swift */; };
+		5EE1414A264EB41F002CB884 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE14149264EB41F002CB884 /* OrderCell.swift */; };
 		5EF4EB222642C7DC00D59F39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4EB212642C7DC00D59F39 /* MainViewController.swift */; };
-		9064E37D3910A2611CE10B8E /* Pods_eShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACA9A535549C561465CDD17 /* Pods_eShop.framework */; };
+		882D0E70474DA18F5CBA217A /* Pods_eShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1355978BD2BFC2048CDE9494 /* Pods_eShop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12577AEE9ADBDFD89453B9CF /* Pods-eShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.release.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.release.xcconfig"; sourceTree = "<group>"; };
+		1355978BD2BFC2048CDE9494 /* Pods_eShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A6CD34BD61BA287104D5CEE /* Pods-eShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.debug.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.debug.xcconfig"; sourceTree = "<group>"; };
 		5E07C40526478F14005DA58B /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		5E07C40F2647CE0A005DA58B /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		5E1277BA2645A24000DD7E8B /* ChosenDishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChosenDishCell.xib; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 		5E32EEA72642B48E00A78482 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E32EEAD2642B60900A78482 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5E32EEB02642BFB900A78482 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5E448A44264D2FDD00F60D8D /* orderedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderedDish.swift; sourceTree = "<group>"; };
+		5E448A48264D324B00F60D8D /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5E5482CC2643899E00306F96 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5E7606F7264982F500A4B811 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -69,17 +79,17 @@
 		5E77B69E264588E7005AC3B1 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		5E783D6226490A60004A0127 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5E783D6626493138004A0127 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		5E96EDB2264BA87100C4DA89 /* menuDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuDish.swift; sourceTree = "<group>"; };
+		5EA5DDD4264E1A21001828B4 /* DishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishCell.xib; sourceTree = "<group>"; };
 		5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		5EC12F0F2646D7D200E9DE4D /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		5EC12F3F2646EA6C00E9DE4D /* PreOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOrderViewController.swift; sourceTree = "<group>"; };
-		5EC12F442646EB7B00E9DE4D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5EC12F472646EBB800E9DE4D /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5EC8E0352642EDF40069C7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5ECE2B57264431B6008C319E /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		5EE14145264EB3B9002CB884 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		5EE14149264EB41F002CB884 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		5EF4EB212642C7DC00D59F39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A1F561C36A1F2AAA17D0644A /* Pods-eShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.release.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.release.xcconfig"; sourceTree = "<group>"; };
-		AACA9A535549C561465CDD17 /* Pods_eShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B69D59CD3CE22C5C600CDF07 /* Pods-eShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShop.debug.xcconfig"; path = "Target Support Files/Pods-eShop/Pods-eShop.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,13 +97,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9064E37D3910A2611CE10B8E /* Pods_eShop.framework in Frameworks */,
+				882D0E70474DA18F5CBA217A /* Pods_eShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F3F4478BD208A387FFBE21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1355978BD2BFC2048CDE9494 /* Pods_eShop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E07C40E2647CDF6005DA58B /* TrackingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +137,7 @@
 				5E32EE8E2642AFEB00A78482 /* eShop */,
 				5E32EE8D2642AFEB00A78482 /* Products */,
 				A6C24E14331FA09D35A5B402 /* Pods */,
-				B632BF7E37D17DE4419B4C6D /* Frameworks */,
+				17F3F4478BD208A387FFBE21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,8 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				5EC12F472646EBB800E9DE4D /* Menu.swift */,
-				5EC12F442646EB7B00E9DE4D /* Course.swift */,
+				5E96EDB2264BA87100C4DA89 /* menuDish.swift */,
 				5E5482CC2643899E00306F96 /* Dish.swift */,
+				5E448A44264D2FDD00F60D8D /* orderedDish.swift */,
+				5E448A48264D324B00F60D8D /* Order.swift */,
 			);
 			path = Variables;
 			sourceTree = "<group>";
@@ -200,9 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				5E77B69E264588E7005AC3B1 /* CartViewController.swift */,
-				5E1277BA2645A24000DD7E8B /* ChosenDishCell.xib */,
 				5E1277BD2645A37F00DD7E8B /* ChosenDishCell.swift */,
-				5E07C40E2647CDF6005DA58B /* TrackingViewController */,
+				5E1277BA2645A24000DD7E8B /* ChosenDishCell.xib */,
+				5EE14144264EB39A002CB884 /* OrdersViewController */,
 			);
 			path = CartViewController;
 			sourceTree = "<group>";
@@ -240,10 +260,21 @@
 			isa = PBXGroup;
 			children = (
 				5ECE2B57264431B6008C319E /* CourseDetailViewController.swift */,
+				5EA5DDD4264E1A21001828B4 /* DishCell.xib */,
 				5E7606FF2649850100A4B811 /* DishCell.swift */,
 				5E77B68D26456306005AC3B1 /* DishDetailViewController */,
 			);
 			path = CourseViewController;
+			sourceTree = "<group>";
+		};
+		5EE14144264EB39A002CB884 /* OrdersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5EE14145264EB3B9002CB884 /* OrdersViewController.swift */,
+				5EE14149264EB41F002CB884 /* OrderCell.swift */,
+				5E07C40E2647CDF6005DA58B /* TrackingViewController */,
+			);
+			path = OrdersViewController;
 			sourceTree = "<group>";
 		};
 		5EF4EB202642C6C100D59F39 /* Authentication */ = {
@@ -259,18 +290,10 @@
 		A6C24E14331FA09D35A5B402 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B69D59CD3CE22C5C600CDF07 /* Pods-eShop.debug.xcconfig */,
-				A1F561C36A1F2AAA17D0644A /* Pods-eShop.release.xcconfig */,
+				1A6CD34BD61BA287104D5CEE /* Pods-eShop.debug.xcconfig */,
+				12577AEE9ADBDFD89453B9CF /* Pods-eShop.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B632BF7E37D17DE4419B4C6D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AACA9A535549C561465CDD17 /* Pods_eShop.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,11 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E32EEA02642AFEE00A78482 /* Build configuration list for PBXNativeTarget "eShop" */;
 			buildPhases = (
-				39AE2421254AB8F55E8FFC33 /* [CP] Check Pods Manifest.lock */,
+				A1B987825002A5AC08CFB42A /* [CP] Check Pods Manifest.lock */,
 				5E32EE882642AFEB00A78482 /* Sources */,
 				5E32EE892642AFEB00A78482 /* Frameworks */,
 				5E32EE8A2642AFEB00A78482 /* Resources */,
-				1AEBD7613C1B908303578F92 /* [CP] Embed Pods Frameworks */,
+				ED229450C24337D68910F15D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,6 +358,7 @@
 				5E2673C52648E1B1008EC1A6 /* Menu.storyboard in Resources */,
 				5E783D6726493138004A0127 /* Cart.storyboard in Resources */,
 				5E32EE9C2642AFEE00A78482 /* LaunchScreen.storyboard in Resources */,
+				5EA5DDD5264E1A21001828B4 /* DishCell.xib in Resources */,
 				5EC8E0362642EDF40069C7B9 /* GoogleService-Info.plist in Resources */,
 				5E783D6326490A60004A0127 /* TabBar.storyboard in Resources */,
 				5E32EE992642AFEE00A78482 /* Assets.xcassets in Resources */,
@@ -346,24 +370,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AEBD7613C1B908303578F92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		39AE2421254AB8F55E8FFC33 /* [CP] Check Pods Manifest.lock */ = {
+		A1B987825002A5AC08CFB42A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,6 +392,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED229450C24337D68910F15D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShop/Pods-eShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -394,13 +418,16 @@
 			files = (
 				5E77B69A2645868A005AC3B1 /* ViewController.swift in Sources */,
 				5E32EEB12642BFB900A78482 /* SignUpViewController.swift in Sources */,
+				5EE1414A264EB41F002CB884 /* OrderCell.swift in Sources */,
 				5E7607002649850100A4B811 /* DishCell.swift in Sources */,
 				5EC12F0C264684D600E9DE4D /* hideKeyBoardExtension.swift in Sources */,
 				5EC12F402646EA6C00E9DE4D /* PreOrderViewController.swift in Sources */,
+				5E96EDB3264BA87100C4DA89 /* menuDish.swift in Sources */,
 				5E32EE942642AFEB00A78482 /* LobbyViewController.swift in Sources */,
 				5E77B68F26456329005AC3B1 /* DishDetailViewController.swift in Sources */,
 				5E32EE902642AFEB00A78482 /* AppDelegate.swift in Sources */,
 				5E07C40626478F14005DA58B /* DateCell.swift in Sources */,
+				5E448A49264D324B00F60D8D /* Order.swift in Sources */,
 				5E1277BE2645A37F00DD7E8B /* ChosenDishCell.swift in Sources */,
 				5EC12F102646D7D200E9DE4D /* AllViewController.swift in Sources */,
 				5E32EEA82642B48F00A78482 /* Utilities.swift in Sources */,
@@ -409,9 +436,10 @@
 				5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */,
 				5E77B69326458013005AC3B1 /* TableViewController.swift in Sources */,
 				5ECE2B58264431B6008C319E /* CourseDetailViewController.swift in Sources */,
-				5EC12F452646EB7B00E9DE4D /* Course.swift in Sources */,
+				5E448A45264D2FDD00F60D8D /* orderedDish.swift in Sources */,
 				5EC12F482646EBB800E9DE4D /* Menu.swift in Sources */,
 				5E07C4102647CE0A005DA58B /* TrackingViewController.swift in Sources */,
+				5EE14146264EB3B9002CB884 /* OrdersViewController.swift in Sources */,
 				5E5482CD2643899E00306F96 /* Dish.swift in Sources */,
 				5E77B69F264588E7005AC3B1 /* CartViewController.swift in Sources */,
 				5E32EE922642AFEB00A78482 /* SceneDelegate.swift in Sources */,
@@ -559,7 +587,7 @@
 		};
 		5E32EEA12642AFEE00A78482 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B69D59CD3CE22C5C600CDF07 /* Pods-eShop.debug.xcconfig */;
+			baseConfigurationReference = 1A6CD34BD61BA287104D5CEE /* Pods-eShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -578,7 +606,7 @@
 		};
 		5E32EEA22642AFEE00A78482 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1F561C36A1F2AAA17D0644A /* Pods-eShop.release.xcconfig */;
+			baseConfigurationReference = 12577AEE9ADBDFD89453B9CF /* Pods-eShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -8,11 +8,11 @@
 import UIKit
 
 class Menu: NSObject {
-    var courses = [Course]()
+    var dishes = [menuDish]()
     var date = ""
     
-    init(courses: [Course], date: String) {
-        self.courses = courses
+    init(dishes: [menuDish], date: String) {
+        self.dishes = dishes
         self.date = date
     }
 }

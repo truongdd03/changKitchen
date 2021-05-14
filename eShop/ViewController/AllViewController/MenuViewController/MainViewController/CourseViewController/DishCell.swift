@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DishCell: UICollectionViewCell {
+class DishCell: UITableViewCell {
     @IBOutlet weak var dishImage: UIImageView!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishPrice: UILabel!

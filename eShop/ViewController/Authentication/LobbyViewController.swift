@@ -21,7 +21,14 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Utilities.styleFilledButton(logInButton)
-        Utilities.styleHollowButton(signUpButton)        
+        Utilities.styleHollowButton(signUpButton)
+        
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "isSignIn") == true {
+            let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
+            let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     @IBAction func logInTapped(_ sender: Any) {

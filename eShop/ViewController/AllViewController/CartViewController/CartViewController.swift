@@ -7,9 +7,6 @@
 
 import UIKit
 
-var chosenDishes = [Dish]()
-var total = 0.0
-
 protocol UpdateTotalPriceProtocol {
    func calculateTotal()
 }
@@ -20,50 +17,58 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var trackButton: UIButton!
-        
+    @IBOutlet weak var dateLabel: UILabel!
+    
     var tax = 0.0 {
         didSet {
             taxLabel.text = "$\(tax)"
         }
     }
     var tip = 0.0
+    var pickUpTime = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        calculateTotal()
+        setUp()
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //fetchData()
-        calculateTotal()
-        
-        title = "Cart"
-        taxLabel.text = "$\(tax)"
-        Utilities.styleFilledButton(orderButton)
-        Utilities.styleHollowButton(trackButton)
-        
-        hideKeyboardWhenTappedAround()
         
         let customCell = UINib(nibName: "ChosenDishCell", bundle: nil)
         tableView.register(customCell, forCellReuseIdentifier: "ChosenDishCell")
     }
     
+    func setUp() {
+        title = "Cart"
+        taxLabel.text = "$\(tax)"
+        dateLabel.text = Utilities.reformatDate(date: date)
+        
+        Utilities.styleFilledButton(orderButton)
+        Utilities.styleHollowButton(trackButton)
+        
+        hideKeyboardWhenTappedAround()
+    }
+    
     @IBAction func didEditTip(_ sender: Any) {
-        total -= tip
         if let tmp = Double((sender as! UITextField).text ?? "0") {
             tip = tmp
         }
-        print(tip)
-        total += tip
         calculateTotal()
     }
     
-    func fetchData() {
-        chosenDishes.removeAll()
-        for i in 0...3 {
-            chosenDishes.append(Dish(name: "Dish \(i)", price: 1.00, quantity: 1, note: nil, image: nil))
+    @IBAction func didEditTime(_ sender: UIDatePicker) {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: sender.date)
+        pickUpTime = "\(String(describing: components.hour!))\(String(describing: components.minute!))"
+        if pickUpTime.count < 4 {
+            pickUpTime = "0" + pickUpTime
         }
+        pickUpTime = date + pickUpTime
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chosenDishes.count
+        return allOrders[date]?.orders.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +80,7 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            chosenDishes.remove(at: indexPath.row)
+            allOrders[date]!.orders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             calculateTotal()
@@ -83,15 +88,20 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     }
     
     func calculateTotal() {
-        total = 0
-        for dish in chosenDishes {
-            total += dish.total
+        var total = 0.0
+        if allOrders[date]?.orders != nil {
+            for dish in allOrders[date]!.orders {
+                total += dish.total
+            }
+            total += tip
+            allOrders[date]!.total = total
         }
-        total += tip
         totalLabel.text = "$\(total)"
     }
     
     @IBAction func orderTapped(_ sender: Any) {
+        let total = allOrders[date]!.total
+        
         if total == 0 { return }
         
         let ac = UIAlertController(title: "Are you sure you want to order?", message: "Total cost is $\(total)", preferredStyle: .alert)

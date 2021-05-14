@@ -62,4 +62,20 @@ class Utilities {
     static func styleRoundedImageView(_ image: UIImageView) {
         image.layer.cornerRadius = 20
     }
+    
+    static func styleRoundedLabel(_ label: UILabel) {
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.cornerRadius = 20
+    }
+    
+    static func reformatDate(date: String) -> String {
+        var tmp = date
+        var id = tmp.index(tmp.startIndex, offsetBy: 2)
+        tmp.insert("/", at: id)
+        id = tmp.index(id, offsetBy: 3)
+        tmp.insert("/", at: id)
+        
+        return tmp
+    }
 }

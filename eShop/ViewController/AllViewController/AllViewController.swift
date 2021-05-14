@@ -8,34 +8,23 @@
 import UIKit
 import Firebase
 
-class AllViewController: UITabBarController {
+var allMenus = [String: Menu]()
+var allDishes = [String: menuDish]()
+var allOrders = [String: Order]()
+var todayDate = ""
 
-    var name = ""
-    
+class AllViewController: UITabBarController {    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
-    }
-    
-    @objc func logOut() {
-        let ac = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Sure", style: .default, handler: { [weak self] action in
-            self?.doLogOut()
-        }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(ac, animated: true)
-    }
-    
-    func doLogOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("Error when log out")
-        }
-        let vc = storyboard?.instantiateViewController(identifier: "LobbyViewController") as! LobbyViewController
-        navigationController?.pushViewController(vc, animated: true)
+        super.viewDidLoad()
+        
+        // Get today date
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "MMddyy"
+        todayDate = formatter1.string(from: today)
     }
 }

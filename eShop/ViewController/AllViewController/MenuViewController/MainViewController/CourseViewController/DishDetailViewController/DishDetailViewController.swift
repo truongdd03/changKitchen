@@ -19,64 +19,90 @@ class DishDetailViewController: ViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var noteTextView: UITextView!
     
-    var dish = Dish(name: "", price: 0, quantity: 0, note: nil, image: nil)
-    var date: String?
-    var totalPrice = 0.0
-    var quantity = 0.0
+    var dish = menuDish(name: "", price: 0, image: nil, courseType: "", id: "")
+    
+    var itemOrdered = orderedDish(id: "", quantity: 0, price: 0)
+    var position: Int? = nil
+    var prevQuantity = 0.0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemOrdered = orderedDish(id: "", quantity: 0, price: 0)
+        itemOrdered.price = dish.price
+        itemOrdered.id = dish.id
+        prevQuantity = 0
+        
+        // Find position of dish in the list of ordered items
+        if let orders = allOrders[date]?.orders {
+            for i in 0..<orders.count {
+                if orders[i].id == dish.id {
+                    position = i
+                    itemOrdered.quantity = orders[i].quantity
+                    itemOrdered.note = orders[i].note
+                }
+            }
+        }
+                
+        hideKeyboardWhenTappedAround()
+        setUp()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
-        setUp()
     }
 
     func setUp() {
         totalPriceLabel.text = "$0.0"
         dishNameLabel.text = dish.name
-        quantityInCart.text = "In Cart: \(Int(dish.quantity))"
+        quantityInCart.text = "In Cart: \(Int(itemOrdered.quantity)) ($\(itemOrdered.total))"
+        dishPriceLabel.text = "$\(dish.price)"
+        
+        itemOrdered.quantity = 0.0
+        itemOrdered.total = 0.0
 
         noteTextView.layer.borderWidth = 1
         noteTextView.layer.borderColor = UIColor.init(white: 0, alpha: 0.08).cgColor
-        noteTextView.text = dish.note
+        noteTextView.text = itemOrdered.note
         
         Utilities.styleFilledButton(addButton)
     }
 
     @IBAction func quantityFieldDidEdit(_ sender: Any) {
-        if let tmp = Int((sender as! UITextField).text ?? "0") {
-            quantity += Double(tmp)
-            totalPrice = quantity * dish.price
-            totalPriceLabel.text = "$\(totalPrice)"
+        itemOrdered.quantity -= prevQuantity
+        
+        if let tmp = Double((sender as! UITextField).text ?? "0") {
+            itemOrdered.quantity += tmp
+            totalPriceLabel.text = "$\(itemOrdered.total)"
+            prevQuantity = tmp
         }
     }
         
     func updateDish() {
-        var isNew = false
-        if dish.quantity == 0 { isNew = true }
-        
-        dish.quantity += quantity
-        dish.total = totalPrice
-        dish.note = noteTextView.text
-        
-        if isNew {
-            chosenDishes.append(dish)
+            
+        if position == nil {
+            if allOrders[date] == nil {
+                allOrders[date] = Order(orders: [], id: "", total: 0)
+            }
+            position = 0
+            allOrders[date]!.orders.append(itemOrdered)
+            allOrders[date]!.total = itemOrdered.total
+            
+        } else {
+            
+            allOrders[date]!.orders[position!].quantity += itemOrdered.quantity
+            allOrders[date]!.total += itemOrdered.total
         }
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        if totalPrice == 0 { return }
+        if itemOrdered.total == 0 { return }
         
         updateDish()
         
         noteTextView.text = ""
         quantityField.text = ""
         totalPriceLabel.text = "$0.0"
-        quantityInCart.text = "In Cart: \(Int(dish.quantity))"
-        
-        if date != "Today" {
-            preOrder()
-            return
-        }
+        let tmp = allOrders[date]!.orders[position!]
+        quantityInCart.text = "In Cart: \(Int(tmp.quantity))(\(tmp.total))"
         
         let ac = UIAlertController(title: "Added to cart!", message: "Is that all?", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "No", style: .default, handler: { [weak self] action in
@@ -88,11 +114,5 @@ class DishDetailViewController: ViewController {
         }))
 
         present(ac, animated: true)
-    }
-    
-    // Upload demand
-    func preOrder() {
-        //var dateOrder = date
-        //var dishOrder = dish
     }
 }

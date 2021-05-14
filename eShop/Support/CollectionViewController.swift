@@ -31,6 +31,10 @@ class CollectionViewController: UICollectionViewController {
         } catch {
             print("Error when log out")
         }
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(false, forKey: "isSignIn")
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(identifier: "LobbyViewController") as! LobbyViewController
         navigationController?.pushViewController(vc, animated: true)

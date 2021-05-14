@@ -79,10 +79,12 @@ class SignUpViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "OK!", style: .default, handler: { [weak self] action in
             let storyBoard = UIStoryboard(name: "TabBar", bundle: nil)
             let vc = storyBoard.instantiateViewController(identifier: "AllViewController") as! AllViewController
-            vc.name = "Today's Menu"
             self?.navigationController?.pushViewController(vc, animated: true)
         }))
         present(ac, animated: true)
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(true, forKey: "isSignIn")
     }
     
     func showError(message: String) {
