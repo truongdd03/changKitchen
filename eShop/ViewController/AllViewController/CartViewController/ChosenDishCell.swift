@@ -26,6 +26,17 @@ class ChosenDishCell: UITableViewCell {
         showLabel()
     }
 
+    func showLabel() {
+        let orderedDish = allOrders[date]!.orders[id]
+        let dish = allDishes[orderedDish.id]!
+        dishNameLabel.text = dish.name
+        priceLabel.text = "$\(dish.price)"
+        quantityLabel.text = "\(Int(orderedDish.quantity))"
+        totalLabel.text = "$\(orderedDish.total)"
+    }
+    
+    
+    //MARK: Buttons
     @IBAction func reduceTapped(_ sender: Any) {
         if allOrders[date]!.orders[id].quantity == 0 { return }
         
@@ -40,14 +51,5 @@ class ChosenDishCell: UITableViewCell {
         showLabel()
         
         delegate.calculateTotal()
-    }
-
-    func showLabel() {
-        let orderedDish = allOrders[date]!.orders[id]
-        let dish = allDishes[orderedDish.id]!
-        dishNameLabel.text = dish.name
-        priceLabel.text = "$\(dish.price)"
-        quantityLabel.text = "\(Int(orderedDish.quantity))"
-        totalLabel.text = "$\(orderedDish.total)"
     }
 }

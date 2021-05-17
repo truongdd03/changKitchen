@@ -8,8 +8,6 @@
 import UIKit
 import Firebase
 
-private let reuseIdentifier = "Cell"
-
 class PreOrderViewController: CollectionViewController {
     // Save all preorder menus
     var listOfDates = [String]()
@@ -20,11 +18,33 @@ class PreOrderViewController: CollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
         fetchData()
     }
     
+    
+    // MARK: Collection View
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listOfDates.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCell
+        cell.dateLabel.text = listOfDates[indexPath.item]
+        Utilities.styleFilledLabel(cell.dateLabel)
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Menu", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "MainViewController") as! MainViewController
+        vc.dateTitle = listOfDates[indexPath.item]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    // MARK: Firebase
     // List of dates that have menu
     func fetchData() {
         let ref = Database.database().reference()
@@ -45,24 +65,12 @@ class PreOrderViewController: CollectionViewController {
         let tmp = Utilities.reformatDate(date: date)
         
         listOfDates.append(tmp)
+        listOfDates.sort() {
+            let date1 = Utilities.findYear(pickUpTime: $0) + $0
+            let date2 = Utilities.findYear(pickUpTime: $1) + $1
+            
+            return date1 < date2
+        }
         collectionView.reloadData()
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listOfDates.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCell
-        cell.dateLabel.text = listOfDates[indexPath.item]
-        Utilities.styleFilledLabel(cell.dateLabel)
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Menu", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "MainViewController") as! MainViewController
-        vc.dateTitle = listOfDates[indexPath.item]
-        navigationController?.pushViewController(vc, animated: true)
     }
 }

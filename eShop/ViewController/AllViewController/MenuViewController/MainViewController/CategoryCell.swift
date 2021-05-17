@@ -9,6 +9,7 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
+    
     var categoryName: String? {
         didSet {
             if let categoryName = categoryName {
@@ -19,14 +20,4 @@ class CategoryCell: UITableViewCell {
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-
 }

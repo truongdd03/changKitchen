@@ -23,7 +23,8 @@
 		5E32EEB12642BFB900A78482 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E32EEB02642BFB900A78482 /* SignUpViewController.swift */; };
 		5E448A45264D2FDD00F60D8D /* orderedDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E448A44264D2FDD00F60D8D /* orderedDish.swift */; };
 		5E448A49264D324B00F60D8D /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E448A48264D324B00F60D8D /* Order.swift */; };
-		5E5482CD2643899E00306F96 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5482CC2643899E00306F96 /* Dish.swift */; };
+		5E52985A2652A34100DD7098 /* SimpleDishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5298592652A34100DD7098 /* SimpleDishCell.swift */; };
+		5E52985D2652B57900DD7098 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E52985C2652B57900DD7098 /* Fetch.swift */; };
 		5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */; };
 		5E7606F8264982F500A4B811 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7606F7264982F500A4B811 /* CollectionViewController.swift */; };
 		5E7607002649850100A4B811 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7606FF2649850100A4B811 /* DishCell.swift */; };
@@ -69,7 +70,8 @@
 		5E32EEB02642BFB900A78482 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5E448A44264D2FDD00F60D8D /* orderedDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderedDish.swift; sourceTree = "<group>"; };
 		5E448A48264D324B00F60D8D /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
-		5E5482CC2643899E00306F96 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		5E5298592652A34100DD7098 /* SimpleDishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDishCell.swift; sourceTree = "<group>"; };
+		5E52985C2652B57900DD7098 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 		5E6DDC3D2643E0F9002F5628 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5E7606F7264982F500A4B811 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		5E7606FF2649850100A4B811 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
@@ -116,8 +118,19 @@
 			isa = PBXGroup;
 			children = (
 				5E07C40F2647CE0A005DA58B /* TrackingViewController.swift */,
+				5E5298592652A34100DD7098 /* SimpleDishCell.swift */,
 			);
 			path = TrackingViewController;
+			sourceTree = "<group>";
+		};
+		5E1EBFE12650EE6000AC2AFB /* View Controller Template */ = {
+			isa = PBXGroup;
+			children = (
+				5E77B69226458013005AC3B1 /* TableViewController.swift */,
+				5E77B6992645868A005AC3B1 /* ViewController.swift */,
+				5E7606F7264982F500A4B811 /* CollectionViewController.swift */,
+			);
+			path = "View Controller Template";
 			sourceTree = "<group>";
 		};
 		5E2673C32648E17D008EC1A6 /* Storyboard */ = {
@@ -178,11 +191,10 @@
 		5E32EEAB2642B4A600A78482 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				5E1EBFE12650EE6000AC2AFB /* View Controller Template */,
 				5E32EEA72642B48E00A78482 /* Utilities.swift */,
-				5E77B69226458013005AC3B1 /* TableViewController.swift */,
-				5E77B6992645868A005AC3B1 /* ViewController.swift */,
-				5E7606F7264982F500A4B811 /* CollectionViewController.swift */,
 				5EC12F0B264684D500E9DE4D /* hideKeyBoardExtension.swift */,
+				5E52985C2652B57900DD7098 /* Fetch.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -192,9 +204,8 @@
 			children = (
 				5EC12F472646EBB800E9DE4D /* Menu.swift */,
 				5E96EDB2264BA87100C4DA89 /* menuDish.swift */,
-				5E5482CC2643899E00306F96 /* Dish.swift */,
-				5E448A44264D2FDD00F60D8D /* orderedDish.swift */,
 				5E448A48264D324B00F60D8D /* Order.swift */,
+				5E448A44264D2FDD00F60D8D /* orderedDish.swift */,
 			);
 			path = Variables;
 			sourceTree = "<group>";
@@ -433,6 +444,8 @@
 				5E32EEA82642B48F00A78482 /* Utilities.swift in Sources */,
 				5E7606F8264982F500A4B811 /* CollectionViewController.swift in Sources */,
 				5E32EEAE2642B60900A78482 /* LogInViewController.swift in Sources */,
+				5E52985A2652A34100DD7098 /* SimpleDishCell.swift in Sources */,
+				5E52985D2652B57900DD7098 /* Fetch.swift in Sources */,
 				5E6DDC3E2643E0F9002F5628 /* CategoryCell.swift in Sources */,
 				5E77B69326458013005AC3B1 /* TableViewController.swift in Sources */,
 				5ECE2B58264431B6008C319E /* CourseDetailViewController.swift in Sources */,
@@ -440,7 +453,6 @@
 				5EC12F482646EBB800E9DE4D /* Menu.swift in Sources */,
 				5E07C4102647CE0A005DA58B /* TrackingViewController.swift in Sources */,
 				5EE14146264EB3B9002CB884 /* OrdersViewController.swift in Sources */,
-				5E5482CD2643899E00306F96 /* Dish.swift in Sources */,
 				5E77B69F264588E7005AC3B1 /* CartViewController.swift in Sources */,
 				5E32EE922642AFEB00A78482 /* SceneDelegate.swift in Sources */,
 				5EF4EB222642C7DC00D59F39 /* MainViewController.swift in Sources */,

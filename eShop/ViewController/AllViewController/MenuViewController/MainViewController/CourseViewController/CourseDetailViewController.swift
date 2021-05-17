@@ -20,6 +20,9 @@ class CourseDetailViewController: TableViewController {
     }
     var listOfDishes = [menuDish]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        //print(date)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,13 +41,15 @@ class CourseDetailViewController: TableViewController {
         listOfDishes = tmp
     }
 
+
+    // MARK: Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfDishes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishCell
-        cell.dishImage.image = UIImage(named: "main")
+        cell.dishImage.image = listOfDishes[indexPath.item].image
         cell.dishName.text = listOfDishes[indexPath.item].name
         cell.dishPrice.text = "$\(listOfDishes[indexPath.item].price)"
         
@@ -54,6 +59,7 @@ class CourseDetailViewController: TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(identifier: "DishDetailViewController") as! DishDetailViewController
         vc.dish = listOfDishes[indexPath.row]
         vc.title = self.title

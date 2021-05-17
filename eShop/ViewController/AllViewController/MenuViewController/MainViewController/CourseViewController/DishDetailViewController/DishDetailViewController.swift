@@ -30,6 +30,7 @@ class DishDetailViewController: ViewController {
         itemOrdered.price = dish.price
         itemOrdered.id = dish.id
         prevQuantity = 0
+        position = nil
         
         // Find position of dish in the list of ordered items
         if let orders = allOrders[date]?.orders {
@@ -66,21 +67,12 @@ class DishDetailViewController: ViewController {
         Utilities.styleFilledButton(addButton)
     }
 
-    @IBAction func quantityFieldDidEdit(_ sender: Any) {
-        itemOrdered.quantity -= prevQuantity
-        
-        if let tmp = Double((sender as! UITextField).text ?? "0") {
-            itemOrdered.quantity += tmp
-            totalPriceLabel.text = "$\(itemOrdered.total)"
-            prevQuantity = tmp
-        }
-    }
-        
     func updateDish() {
-            
+        itemOrdered.note = noteTextView.text
+        
         if position == nil {
             if allOrders[date] == nil {
-                allOrders[date] = Order(orders: [], id: "", total: 0)
+                allOrders[date] = Order(orders: [], id: "", total: 0, pickUpTime: "")
             }
             position = 0
             allOrders[date]!.orders.append(itemOrdered)
@@ -90,6 +82,17 @@ class DishDetailViewController: ViewController {
             
             allOrders[date]!.orders[position!].quantity += itemOrdered.quantity
             allOrders[date]!.total += itemOrdered.total
+        }
+    }
+
+    // MARK: Text Field and Buttons
+    @IBAction func quantityFieldDidEdit(_ sender: Any) {
+        itemOrdered.quantity -= prevQuantity
+        
+        if let tmp = Double((sender as! UITextField).text ?? "0") {
+            itemOrdered.quantity += tmp
+            totalPriceLabel.text = "$\(itemOrdered.total)"
+            prevQuantity = tmp
         }
     }
     
@@ -104,13 +107,9 @@ class DishDetailViewController: ViewController {
         let tmp = allOrders[date]!.orders[position!]
         quantityInCart.text = "In Cart: \(Int(tmp.quantity))(\(tmp.total))"
         
-        let ac = UIAlertController(title: "Added to cart!", message: "Is that all?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "No", style: .default, handler: { [weak self] action in
+        let ac = UIAlertController(title: "Added to cart!", message: "", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
             self?.navigationController?.popViewController(animated: true)
-        }))
-        ac.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { [weak self] action in
-            self?.tabBarController?.selectedIndex = 2
-            self?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }))
 
         present(ac, animated: true)

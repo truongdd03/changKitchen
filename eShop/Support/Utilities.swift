@@ -78,4 +78,33 @@ class Utilities {
         
         return tmp
     }
+    
+    static func reformatPickUpTime(pickUpTime: String) -> String {
+        var result = ""
+        
+        var time = pickUpTime
+        time.removeFirst(6)
+        let index = time.index(time.startIndex, offsetBy: 2)
+        time.insert(":", at: index)
+        result = "\(time), "
+        
+        var date = pickUpTime
+        date.removeLast(4)
+        result += Utilities.reformatDate(date: date)
+        
+        return result
+    }
+    
+    static func findYear(pickUpTime: String) -> String {
+        var result = pickUpTime
+        result.removeFirst(4)
+        result.removeLast(4)
+        return result
+    }
+    
+    static func createAlert(title: String, message: String) -> UIAlertController {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return ac
+    }
 }
