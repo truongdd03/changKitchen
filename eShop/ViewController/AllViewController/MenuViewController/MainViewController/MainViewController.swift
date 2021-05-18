@@ -23,7 +23,6 @@ class MainViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         title = dateTitle
         calculateDate()
-        print(date)
     }
 
     override func viewDidLoad() {
@@ -49,6 +48,7 @@ class MainViewController: ViewController {
             } else {
                 let dishLoader = self.loader()
                 Fetch.fetchMenuDish(id: id) {
+                    
                     allMenus[date]?.dishes.append(allDishes[id]!)
                     self.stopLoader(loader: dishLoader)
                 }

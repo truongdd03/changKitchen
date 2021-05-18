@@ -10,7 +10,7 @@ import Firebase
 
 class OrdersViewController: TableViewController {
     var listOfOrders = [Order]()
-    var ref = Database.database().reference().child("orders")
+    var ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +44,11 @@ class OrdersViewController: TableViewController {
     // MARK: Firebase
     func fetchData() {
         let userID = Auth.auth().currentUser?.uid
-        ref = ref.child(userID!)
-        ref.observe(.value, with: { (snapshot) in
+        ref.child("orders").child(userID!).observe(.value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
                         
             for item in dictionary {
-                self.ref.child(item.key).observe(.value) { (orderData) in
+                self.ref.child("orderStatus").child(item.key).observe(.value) { (orderData) in
                     let orderDictionary = orderData.value as! [String: Any]
                     self.fetchOrder(dictionary: orderDictionary)
                     self.tableView.reloadData()

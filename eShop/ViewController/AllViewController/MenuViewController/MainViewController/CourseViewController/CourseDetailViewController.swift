@@ -20,9 +20,6 @@ class CourseDetailViewController: TableViewController {
     }
     var listOfDishes = [menuDish]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        //print(date)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

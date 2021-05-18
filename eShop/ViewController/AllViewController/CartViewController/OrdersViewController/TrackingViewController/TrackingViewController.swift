@@ -90,7 +90,7 @@ class TrackingViewController: TableViewController {
         
         let order = orderDishes[indexPath.row]
         cell.dishNameLabel.text = allDishes[order.id]!.name
-        cell.quantityLabel.text = "x\(order.quantity)"
+        cell.quantityLabel.text = "x\(Int(order.quantity))"
         
         return cell
     }
@@ -105,15 +105,14 @@ class TrackingViewController: TableViewController {
         let ref = Database.database().reference()
         
         ref.child("orderStatus").child(order!.id).observe(.value) { (snapshot) in
-            self.status = snapshot.value as! String
+            let dictionary = snapshot.value as! [String: Any]
+            self.status = dictionary["status"] as! String
             completion()
         }
     }
     
     func fetchOrder(completion: @escaping () -> Void) {
-        let uid = Auth.auth().currentUser?.uid
-        
-        ref = ref.child("orders").child(uid!).child(order!.id)
+        ref = ref.child("orderStatus").child(order!.id)
         ref.observe(.value) { (snapshot) in
             let dictionary = snapshot.value as! [String: Any]
             

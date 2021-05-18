@@ -62,7 +62,7 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
             total += tip
             allOrders[date]!.total = total
         }
-        totalLabel.text = "$\(total)"
+        totalLabel.text = "$\(round(total*100)/100)"
     }
     
     func updatePickUpTime() {
@@ -175,16 +175,20 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     }
     
     func uploadOrder(completion: @escaping () -> Void) {
-        let ref = Database.database().reference().child("orders")
+        let ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
         let orderID = allOrders[date]!.id
     
-        //Update order
+        // Update order locally
+        ref.child("orders").child(userID!).child(orderID).setValue(orderID)
+        
+        //Update order globally
         let order = allOrders[date]!
-        let userRef = ref.child(userID!).child(orderID)
+        let userRef = ref.child("orderStatus").child(orderID)
         userRef.child("id").setValue(order.id)
         userRef.child("total").setValue(order.total)
         userRef.child("pickUpTime").setValue(order.pickUpTime)
+        userRef.child("status").setValue("Received")
         
         //Update dish in order
         for item in order.orders {
