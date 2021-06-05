@@ -22,7 +22,8 @@ class TrackingViewController: TableViewController {
     var statusPercent = [String: Float]()
     var orderDishes = [orderedDish]()
     
-    var ref = Database.database().reference()
+    var ref = Database.database().reference().child("orderStatus")
+
     var status = ""
     
     override func viewDidLoad() {
@@ -49,10 +50,13 @@ class TrackingViewController: TableViewController {
                 self.statusLabel.textColor = self.statusColor[self.status]!
             }
             
-            fetchOrder {
-                self.totalCostLabel.text = "$\(order.total)"
-                print(self.orderDishes.count)
-                self.tableView.reloadData()
+            if orderDishes.count == 0 {
+                fetchOrder {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.totalCostLabel.text = "$\(order.total)"
+                        self.tableView.reloadData()
+                    })
+                }
             }
         }
     }
@@ -102,9 +106,7 @@ class TrackingViewController: TableViewController {
 
     // MARK: Firebase
     func fetchStatus(completion: @escaping () -> Void) {
-        let ref = Database.database().reference()
-        
-        ref.child("orderStatus").child(order!.id).observe(.value) { (snapshot) in
+        ref.child(order!.id).observe(.value) { (snapshot) in
             let dictionary = snapshot.value as! [String: Any]
             self.status = dictionary["status"] as! String
             completion()
@@ -112,8 +114,7 @@ class TrackingViewController: TableViewController {
     }
     
     func fetchOrder(completion: @escaping () -> Void) {
-        ref = ref.child("orderStatus").child(order!.id)
-        ref.observe(.value) { (snapshot) in
+        ref.child(order!.id).getData { (error, snapshot) in
             let dictionary = snapshot.value as! [String: Any]
             
             for item in dictionary {
@@ -132,9 +133,11 @@ class TrackingViewController: TableViewController {
     
     func fetchOrderDetail(id: String, completion: @escaping () -> Void) {
         let result = orderedDish(id: "", quantity: 0, price: 0)
-        ref.child(id).observe(.value) { (snapshot) in
+        
+        ref.child(order!.id).child(id).getData { (error, snapshot) in
             let dictionary = snapshot.value as! [String: Any]
-            let quantity = dictionary["quantity"] as! Double
+            let tmp = (dictionary[id]) as! [String: Any]
+            let quantity = tmp["quantity"] as! Double
             result.quantity = quantity
             result.id = id
             self.orderDishes.append(result)

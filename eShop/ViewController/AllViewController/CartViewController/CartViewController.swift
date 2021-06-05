@@ -189,6 +189,7 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
         userRef.child("total").setValue(order.total)
         userRef.child("pickUpTime").setValue(order.pickUpTime)
         userRef.child("status").setValue("Received")
+        userRef.child("uid").setValue(userID!)
         
         //Update dish in order
         for item in order.orders {
