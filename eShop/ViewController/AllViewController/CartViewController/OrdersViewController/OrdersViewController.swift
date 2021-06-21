@@ -61,6 +61,11 @@ class OrdersViewController: TableViewController {
         let id = dictionary["id"] as! String
         let pickUpTime = dictionary["pickUpTime"] as! String
         let total = dictionary["total"] as! Double
+        for order in listOfOrders {
+            if order.id == id {
+                return
+            }
+        }
         listOfOrders.append(Order(orders: [], id: id, total: total, pickUpTime: pickUpTime))
         
         listOfOrders.sort {

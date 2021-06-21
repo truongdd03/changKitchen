@@ -26,6 +26,10 @@ class TrackingViewController: TableViewController {
 
     var status = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateLabel()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +37,6 @@ class TrackingViewController: TableViewController {
         setUp()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        updateLabel()
     }
     
     func updateLabel() {
@@ -49,7 +51,7 @@ class TrackingViewController: TableViewController {
                 self.statusLabel.text = self.status
                 self.statusLabel.textColor = self.statusColor[self.status]!
             }
-            
+                        
             if orderDishes.count == 0 {
                 fetchOrder {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -93,7 +95,8 @@ class TrackingViewController: TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleDishCell", for: indexPath) as! SimpleDishCell
         
         let order = orderDishes[indexPath.row]
-        cell.dishNameLabel.text = allDishes[order.id]!.name
+        if (allDishes[order.id] == nil) { cell.dishNameLabel.text = "" }
+        else { cell.dishNameLabel.text = allDishes[order.id]!.name }
         cell.quantityLabel.text = "x\(Int(order.quantity))"
         
         return cell
@@ -143,6 +146,7 @@ class TrackingViewController: TableViewController {
             self.orderDishes.append(result)
             
             completion()
+            
         }
         
     }

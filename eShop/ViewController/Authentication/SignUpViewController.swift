@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password2Label: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(firstNameLabel)
         Utilities.styleTextField(lastNameLabel)
         Utilities.styleTextField(emailLabel)
+        Utilities.styleTextField(phoneLabel)
         Utilities.styleTextField(passwordLabel)
         Utilities.styleTextField(password2Label)
         Utilities.styleFilledButton(signUpButton)
@@ -60,6 +62,7 @@ class SignUpViewController: UIViewController {
         let password = passwordLabel.text!
         let firstName = firstNameLabel.text!
         let lastName = lastNameLabel.text!
+        let phone = phoneLabel.text!
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -67,8 +70,11 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let db = Firestore.firestore()
-            db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "uid": result!.user.uid])
+            let db = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid);
+            db.child("firstname").setValue(firstName)
+            db.child("lastname").setValue(lastName)
+            db.child("phone").setValue(phone)
+            db.child("orders").setValue(0)
             
             self.transit()
         }

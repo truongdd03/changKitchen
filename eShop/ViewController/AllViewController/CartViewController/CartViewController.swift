@@ -121,7 +121,7 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     
     func transit() {
         let loadingView = self.loader()
-        
+        updateNumberOfOrders()
         updateData() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 let vc = self.storyboard!.instantiateViewController(identifier: "OrdersViewController") as! OrdersViewController
@@ -145,6 +145,16 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
     
     
     // MARK: Firebase
+    func updateNumberOfOrders() {
+        let uid = Auth.auth().currentUser!.uid
+        let ref = Database.database().reference().child("users")
+        ref.child(uid).getData { (error, snapshot) in
+            let dict = snapshot.value as! [String: Any]
+            let numberOfOrders = dict["orders"] as! Int
+            ref.child(uid).child("orders").setValue(numberOfOrders + 1)
+        }
+    }
+    
     func updateID(currentID: String) -> String {
         var id = Int(currentID)!
         id = id + 1
@@ -190,6 +200,7 @@ class CartViewController: TableViewController, UpdateTotalPriceProtocol {
         userRef.child("pickUpTime").setValue(order.pickUpTime)
         userRef.child("status").setValue("Received")
         userRef.child("uid").setValue(userID!)
+        userRef.child("quantity").setValue(order.orders.count)
         
         //Update dish in order
         for item in order.orders {

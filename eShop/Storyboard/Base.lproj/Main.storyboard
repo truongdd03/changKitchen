@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dc1-lR-PSh">
-                                <rect key="frame" x="40" y="94" width="334" height="440.5"/>
+                                <rect key="frame" x="40" y="94" width="334" height="510.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UM4-Lo-0dH">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -106,8 +106,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-M3-cJm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgO-YM-mYY">
                                         <rect key="frame" x="0.0" y="210" width="334" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxX-M3-cJm">
+                                        <rect key="frame" x="0.0" y="280" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ex2-uU-COT"/>
                                         </constraints>
@@ -115,7 +120,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-type password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="034-uF-Vmf">
-                                        <rect key="frame" x="0.0" y="280" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="350" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="OQx-RY-1q4"/>
                                         </constraints>
@@ -123,7 +128,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-XE-Y9k">
-                                        <rect key="frame" x="0.0" y="350" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="420" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cIX-NO-9XR"/>
                                         </constraints>
@@ -133,12 +138,15 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-X9-hCi">
-                                        <rect key="frame" x="0.0" y="420" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="490" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="zgO-YM-mYY" firstAttribute="height" secondItem="lTh-BH-8Sk" secondAttribute="height" id="61a-8g-Gek"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2HZ-9j-bO1"/>
@@ -157,6 +165,7 @@
                         <outlet property="lastNameLabel" destination="QNy-vc-jLD" id="n1T-cx-Udx"/>
                         <outlet property="password2Label" destination="034-uF-Vmf" id="4yd-Lx-9aj"/>
                         <outlet property="passwordLabel" destination="uxX-M3-cJm" id="FyC-rE-jis"/>
+                        <outlet property="phoneLabel" destination="zgO-YM-mYY" id="gre-wL-gSu"/>
                         <outlet property="signUpButton" destination="pG9-XE-Y9k" id="2Ru-wO-aoR"/>
                         <segue destination="wJm-oZ-jKV" kind="show" id="7zs-6R-Gn2"/>
                     </connections>
@@ -265,7 +274,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lcv-Gl-oR6"/>
+        <segue reference="7zs-6R-Gn2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
