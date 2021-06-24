@@ -42,6 +42,8 @@ class MainViewController: ViewController {
     }
     
     func startFetchDish() {
+        allMenus[date]!.dishes = []
+            
         for id in self.dishID {
             if let dish = allDishes[id] {
                 allMenus[date]!.dishes.append(dish)
@@ -53,7 +55,7 @@ class MainViewController: ViewController {
                     self.stopLoader(loader: dishLoader)
                 }
             }
-        }
+        }        
     }
     
     func calculateDate() {
@@ -71,6 +73,7 @@ class MainViewController: ViewController {
     @IBAction func buttonTapped(_ sender: Any) {
         let courseName = (sender as! UIButton).titleLabel?.text
         let vc = storyboard?.instantiateViewController(identifier: "CourseDetailViewController") as! CourseDetailViewController
+                
         vc.dateTitle = dateTitle
         vc.courseName = courseName!
         vc.listOfDishes = allMenus[date]!.dishes
@@ -87,7 +90,8 @@ class MainViewController: ViewController {
                 self.present(ac, animated: true)
                 return
             }
-                
+            
+            self.dishID = []
             for item in dictionary {
                 self.dishID.append(item.value as! String)
             }

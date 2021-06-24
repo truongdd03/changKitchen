@@ -29,7 +29,6 @@ struct Fetch {
                     let dish = menuDish(name: name, price: price, image: image, courseType: courseType, id: id)
                     allDishes[id] = dish
                     
-                    print("YES")
                     completion()
                 }
             }
