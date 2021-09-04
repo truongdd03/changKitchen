@@ -25,4 +25,4 @@ The following functionality is completed:
 This app is a combination of different view controller types, with the back-end built based on Firebase.
 
 ## Video walkthrough
-
+![](demo.gif)
