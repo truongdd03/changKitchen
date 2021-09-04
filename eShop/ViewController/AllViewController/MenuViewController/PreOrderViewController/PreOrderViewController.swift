@@ -60,6 +60,14 @@ class PreOrderViewController: CollectionViewController {
     
     func updateList(date: String) {
     
+        var y1 = date
+        y1.removeFirst(4)
+        var y2 = todayDate
+        y2.removeFirst(4)
+        if y1 < y2 || (y1 == y2 && date < todayDate) {
+            return
+        }
+        
         // add '/' in date
         // from 051221 to 05/12/21
         let tmp = Utilities.reformatDate(date: date)
@@ -71,6 +79,7 @@ class PreOrderViewController: CollectionViewController {
             
             return date1 < date2
         }
+        
         collectionView.reloadData()
     }
 }
